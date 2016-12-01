@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Products from './Products.jsx';
+import Filters from './Filters.jsx';
 import styles from '../styles/style.less';
 import $ from 'jquery';
 
@@ -9,9 +10,13 @@ class App extends Component {
 
     this.state = {
       products: [],
+      filterVal: '',
       pageTitle: null,
       extraInfo: null
     }
+
+    this.init = this.init.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
 
   }
 
@@ -28,9 +33,9 @@ class App extends Component {
       const products = response.products.map(product => {
         return {
           id: product.id,
-          name: product.name,
+          name: product.name.toUpperCase(),
           image: product.mainImage.ref,
-          price: '$' + (product.defaultPriceInCents / 100).toFixed(2)
+          price: (product.defaultPriceInCents / 100).toFixed(2)
         }
       });
 
@@ -45,6 +50,23 @@ class App extends Component {
 
   }
 
+  handleFilterChange(event) {
+    const filterVal = event.target.value;
+    const products = this.state.products.slice();
+
+    if (filterVal === 'nameAZ') {
+      products.sort((a,b) => a.name > b.name);
+    } else if (filterVal === 'nameZA') {
+      products.sort((a,b) => a.name < b.name);
+    } else if (filterVal === 'priceHL') {
+      products.sort((a,b) => b.price - a.price);
+    } else if (filterVal === 'priceLH') {
+      products.sort((a,b) => a.price - b.price);
+    }
+
+    this.setState({ products, filterVal });
+  }
+
   componentWillMount() {
     this.init();
   }
@@ -52,6 +74,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Filters filterVal={this.state.filterVal} handleFilterChange={this.handleFilterChange}/>
         <Products products={this.state.products} />
       </div>
     );
