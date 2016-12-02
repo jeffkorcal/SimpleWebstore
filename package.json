@@ -4,7 +4,8 @@
   "description": "webstore",
   "main": "index.js",
   "scripts": {
-    "dev:start": "webpack-dev-server"
+    "dev:start": "webpack-dev-server",
+    "dev:build": "webpack"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
