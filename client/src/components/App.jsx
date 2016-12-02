@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import Products from './Products.jsx';
-import Filters from './Filters.jsx';
-import styles from '../styles/style.less';
 import $ from 'jquery';
+import PageHeader from './PageHeader.jsx';
+import Filters from './Filters.jsx';
+import Products from './Products.jsx';
+import PageFooter from './PageFooter.jsx';
+import styles from '../styles/style.less';
 
 class App extends Component {
+  
   constructor(props) {
     super(props);
 
     this.state = {
       products: [],
-      filterVal: '',
-      pageTitle: null,
-      extraInfo: null
+      filterVal: ''
     }
 
     this.init = this.init.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
-
   }
 
   init() {
-
+    //ajax call to recieve data
     const request = $.ajax({
       url: "https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js",
       method: 'GET',
@@ -29,7 +29,6 @@ class App extends Component {
     });
 
     request.done(response => {
-
       const products = response.products.map(product => {
         return {
           id: product.id,
@@ -39,18 +38,14 @@ class App extends Component {
         }
       });
 
-      this.setState({ 
-        products: products,
-        pageTitle: response.pageTitle,
-        extraInfo: response.extraInfo
-       });
-
+      this.setState({ products });
     })
     .fail(error => { console.log(error); })
 
   }
 
   handleFilterChange(event) {
+    // event handler for filtering products
     const filterVal = event.target.value;
     const products = this.state.products.slice();
 
@@ -67,15 +62,21 @@ class App extends Component {
     this.setState({ products, filterVal });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.init();
   }
 
   render() {
     return (
       <div>
-        <Filters filterVal={this.state.filterVal} handleFilterChange={this.handleFilterChange}/>
-        <Products products={this.state.products} />
+        <PageHeader />
+        <div className='grid grid-center'>
+          <div className='container'>
+            <Filters filterVal={this.state.filterVal} handleFilterChange={this.handleFilterChange}/>
+            <Products products={this.state.products} />
+          </div>
+        </div>
+        <PageFooter />
       </div>
     );
   }

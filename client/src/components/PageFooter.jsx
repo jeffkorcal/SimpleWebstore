@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const PageFooter = () => {
   return (
-    <div>
+    <div className='foot'>
     </div>
   );
 }

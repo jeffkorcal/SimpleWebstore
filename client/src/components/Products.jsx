@@ -3,7 +3,7 @@ import Product from './Product.jsx';
 
 const Products = ({products}) => {
   return (
-    <div>
+    <div className='grid'>
       {products.map(({id, name, price, image}) => {
         return <Product key={id} name={name} price={price} image={image}/>
       })}

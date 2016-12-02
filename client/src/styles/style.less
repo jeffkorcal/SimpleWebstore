@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('./normalize.css');
+@import url("./grid.css");
+@light-blue: #4fbee9;
+@navy: #09334d;
+@white: #fff;
+@grey: #8e9091;
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.banner {
+  color: @white;
+  background: linear-gradient(@light-blue, transparent 90%),
+              linear-gradient(0deg, @white, transparent),
+              @light-blue url('/client/assets/beach-banner.jpg') no-repeat center / cover;
+  width: 100%;
+  height: 500px;
+}
+
+.filter {
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  overflow: hidden;
+  background: @white url("/client/assets/caret.png") no-repeat 100% 50%;
+}
+.filter select {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.filter select:focus {
+    outline: none;
+}
+
+.product-name {
+  font-weight: 400;
+  margin: 5px 0;
+}
+.product-price {
+  font-weight: 300;
+  margin: 5px 0;
+  color: @grey;
+}
+
+.foot {
+  height: 30px;
+  background-color: @navy;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 350px;
+  }
+  .logo-container {
+    display: inline-block;
+  }
+  .logo-container > img {
+    width: 70%;
+  }
+  .filter {
+    width: 100%;
+    margin: 10px;
+  }
+}
+

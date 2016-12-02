@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 
 const Product = ({name, image, price}) => {
   return (
-    <div>
-      <div>
-        <img src={image} alt={name} />
-      </div>
-      <h4>{name}</h4>
-      <p>{price}</p>
+    <div className='grid-cell align-center'>
+      <img src={image} alt={name} />
+      <h4 className='product-name'>{name}</h4>
+      <p className='product-price'>${price}</p>
     </div>
   );
 }
