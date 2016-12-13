@@ -2,14 +2,19 @@
 @import url('./normalize.css');
 @import url("./grid.css");
 @light-blue: #4fbee9;
+@dark-blue: #2a3d82;
 @navy: #09334d;
 @white: #fff;
 @grey: #8e9091;
+@red: #f44336;
 
 body {
   font-family: 'Lato', sans-serif;
 }
 
+/*********************************
+  Header
+ *********************************/
 .banner {
   color: @white;
   background: linear-gradient(@light-blue, transparent 90%),
@@ -19,29 +24,55 @@ body {
   height: 500px;
 }
 
+/*********************************
+  Filters
+ *********************************/
 .filter {
-  font-weight: 300;
-  padding: 0;
-  margin: 0;
-  width: 200px;
-  overflow: hidden;
-  background: @white url("/client/assets/caret.png") no-repeat 100% 50%;
+  align-items: flex-end;
 }
-.filter select {
-  padding: 10px;
+.checkbox {
+  font-weight: 300;
+}
+.checkbox label {
+  margin-right: 40px;
+  padding: 5px;
+}
+.checkbox input {
+  margin: 1px;
+}
+.sort-by {
+  font-weight: 300;
+  overflow: hidden;
+}
+.sort-by select {
+  padding: 5px 0;
   width: 100%;
   border: none;
   box-shadow: none;
   background-color: transparent;
   background-image: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
-.filter select:focus {
-    outline: none;
+.sort-by select:focus {
+  outline: none;
 }
 
+/*********************************
+  Cart
+ *********************************/
+.cart-total {
+  border-top: solid 1px;
+  padding: 10px 0;
+  margin: 10px 0 0;
+}
+.cart-products {
+  font-weight: 300;
+  margin: 0;
+  list-style-type: none;
+}
+
+/*********************************
+  Product
+ *********************************/
 .product-name {
   font-weight: 400;
   margin: 5px 0;
@@ -51,12 +82,39 @@ body {
   margin: 5px 0;
   color: @grey;
 }
+.wholesale {
+  color: @red;
+}
+.add-to-cart-btn {
+  border-radius: 5px;    
+  background-color: @light-blue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 5px 0 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.add-to-cart-btn:hover {
+  background-color: @dark-blue;
+}
+.add-to-cart-btn:focus {
+  outline: none;
+}
 
+/*********************************
+  Footer
+ *********************************/
 .foot {
   height: 30px;
   background-color: @navy;
 }
 
+/*********************************
+  Media
+ *********************************/
 @media (max-width: 768px) {
   .banner {
     height: 350px;
@@ -66,10 +124,6 @@ body {
   }
   .logo-container > img {
     width: 70%;
-  }
-  .filter {
-    width: 100%;
-    margin: 10px;
   }
 }
 

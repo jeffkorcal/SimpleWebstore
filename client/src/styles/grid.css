@@ -20,8 +20,22 @@
   align-items: center;
 }
 
+.grid-start {
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .grid-end {
   justify-content: flex-end;
+  align-items: center;
+}
+
+.grid-col {
+  flex-direction: column;
+}
+
+.grid-col-end {
+  align-items: flex-end;
 }
 
 .align-left {

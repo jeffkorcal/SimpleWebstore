@@ -1,0 +1,4 @@
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const SORT_PRODUCTS_BY = 'SORT_PRODUCTS_BY'
+export const TOGGLE_WHOLESALE = 'TOGGLE_WHOLESALE';
+export const ADD_TO_CART = 'ADD_TO_CART';

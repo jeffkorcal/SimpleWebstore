@@ -3,25 +3,33 @@
   "version": "1.0.0",
   "description": "webstore",
   "main": "index.js",
+  "repository": "https://github.com/jeffkorcal/SimpleWebstore.git",
+  "license": "MIT",
   "scripts": {
     "dev:start": "webpack-dev-server",
-    "dev:build": "webpack"
+    "dev:build": "webpack",
+    "dev:watch": "webpack --watch"
   },
   "dependencies": {
+    "axios": "^0.15.3",
+    "less": "^2.6.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
-    "jquery": "^3.1.1",
-    "less": "^2.6.0",
     "less-loader": "^2.2.2",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "style-loader": "^0.13.0"
-  },
-  "devDependencies": {
+    "style-loader": "^0.13.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   }
